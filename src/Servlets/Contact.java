@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Servlets.compte")
-public class Compte extends HttpServlet {
+@WebServlet(name = "Servlets.contact")
+public class Contact extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Compte").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/Contact").forward(request, response);
     }
 }

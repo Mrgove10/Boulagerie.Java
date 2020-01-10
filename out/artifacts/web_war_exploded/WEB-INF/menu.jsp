@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
@@ -5,13 +6,13 @@
 <body>
 	<div class="header">
 		<div>
-			<a href="index.html" id="logo"><img src="images/logo.png" alt="logo"></a>
+			<a href="Home" id="logo"><img src="images/logo.png" alt="logo"></a>
 			<ul>
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="produits.html">Produits</a></li>
-				<li class="selected"><a href="menu.html">Menu</a></li>
-				<li><a href="contact.html">Contact</a></li>
-				<li><a href="compte.jsp">Compte</a></li>
+				<li><a href="Home">Accueil</a></li>
+				<li><a href="Produits">Produits</a></li>
+				<li class="selected"><a href="Menu">Menu</a></li>
+				<li><a href="Contact">Contact</a></li>
+				<li><a href="Compte">Compte</a></li>
 				<li><a href="#">Panier</a></li>
 			</ul>
 		</div>

@@ -4,12 +4,33 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd"
            version="4.0">
+    <!--Home-->
     <servlet>
         <servlet-name>Index</servlet-name>
         <servlet-class>Servlets.Index</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
-        <url-pattern>/Index</url-pattern>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+
+    <!--Compte-->
+    <servlet>
+        <servlet-name>Compte</servlet-name>
+        <servlet-class>Servlets.Compte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Compte</servlet-name>
+        <url-pattern>/Compte</url-pattern>
+    </servlet-mapping>
+
+    <!--Contact-->
+    <servlet>
+        <servlet-name>Contact</servlet-name>
+        <servlet-class>Servlets.Contact</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Contact</servlet-name>
+        <url-pattern>/Contact</url-pattern>
     </servlet-mapping>
 </web-app>
