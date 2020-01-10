@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Servlets.Index")
-public class Index extends HttpServlet {
+@WebServlet(name = "Servlets.Produits")
+public class Produits extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/produits.jsp").forward(request, response);
     }
 }

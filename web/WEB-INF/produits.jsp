@@ -2,21 +2,9 @@
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
-<jsp:include page="header.jsp" />
+<jsp:include page="head.jsp" />
 <body>
-	<div class="header">
-		<div>
-			<a href="Home" id="logo"><img src="images/logo.png" alt="logo"></a>
-			<a>
-				<li><a href="Home">Accueil</a></li>
-				<li class="selected"><a href="Produits">Produits</a></li>
-				<li><a href="Menu">Menu</a></li>
-				<li><a href="Contact">Contact</a></li>
-				<a><a href="Compte">Compte</a></a>
-				<li><a href="#">Panier</a></li>
-			</a>
-		</div>
-	</div>
+<jsp:include page="header.jsp" />
 	<div class="content">
 		<div>
 			<div>

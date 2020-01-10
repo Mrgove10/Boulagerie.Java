@@ -33,4 +33,24 @@
         <servlet-name>Contact</servlet-name>
         <url-pattern>/Contact</url-pattern>
     </servlet-mapping>
+
+    <!--Menu-->
+    <servlet>
+        <servlet-name>Menu</servlet-name>
+        <servlet-class>Servlets.Menu</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Menu</servlet-name>
+        <url-pattern>/Menu</url-pattern>
+    </servlet-mapping>
+
+    <!--Produits-->
+    <servlet>
+        <servlet-name>Produits</servlet-name>
+        <servlet-class>Servlets.Produits</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Produits</servlet-name>
+        <url-pattern>/Produits</url-pattern>
+    </servlet-mapping>
 </web-app>
