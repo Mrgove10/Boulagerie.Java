@@ -7,7 +7,7 @@
             <li><a href="Produits">Produits</a></li>
             <li><a href="Menu">Menu</a></li>
             <li><a href="Contact">Contact</a></li>
-            <li class="selected"><a href="Compte">Compte</a></li>
+            <li><a href="Compte">Compte</a></li>
             <li><a href="#">Panier</a></li>
         </ul>
     </div>

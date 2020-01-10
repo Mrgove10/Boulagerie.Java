@@ -3,8 +3,9 @@
 <!-- Website template by freewebsitetemplates.com -->
 <html>
 <jsp:include page="head.jsp" />
+
 <body>
-<jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp" />
 	<div class="content">
 		<div>
 			<ul>
@@ -13,7 +14,7 @@
 					<a href="#">Baguettes</a>
 					<table>
 						<tr>
-							<td style="width:60%" >Le pain au pavot</td>
+							<td style="width:60%">Le pain au pavot</td>
 							<td style="width:40%">€ 1.15</td>
 						</tr>
 						<tr>
@@ -89,4 +90,5 @@
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>
+
 </html>

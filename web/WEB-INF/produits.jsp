@@ -7,7 +7,6 @@
 <jsp:include page="header.jsp" />
 	<div class="content">
 		<div>
-			<div>
 				<form id="login_i">
 					<h1>Rajout d'un produit</h1>
 					<fieldset id="inputs">
@@ -20,8 +19,7 @@
 						<input type="submit" id="submit" value="Ajouter">
 					</fieldset>
 				</form>
-			</div>		
-		</div>
+			</div>
 	</div>
 	<jsp:include page="footer.jsp" />
 </body>

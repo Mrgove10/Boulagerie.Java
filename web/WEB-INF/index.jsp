@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-  <jsp:include page="head.jsp" />
-  <body>
+<jsp:include page="head.jsp" />
+
+<body>
   <jsp:include page="header.jsp" />
   <div class="content">
     <div>
@@ -37,5 +38,6 @@
     </div>
   </div>
   <jsp:include page="footer.jsp" />
-  </body>
+</body>
+
 </html>
