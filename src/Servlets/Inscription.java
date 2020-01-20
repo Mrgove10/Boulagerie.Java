@@ -1,7 +1,6 @@
 package Servlets;
 
 import BackEnd.User;
-import BackEnd.Inscription;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,14 +16,16 @@ public class Inscription extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nom = request.getParameter("adress");
-        String prenom = request.getParameter("prenom");
-        String adress = request.getParameter("adress");
-        int codePostal = Integer.parseInt(request.getParameter("codepostal"));
-        String ville = request.getParameter("ville");
-        int portable = Integer.parseInt(request.getParameter("portable"));
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        User myUser = new User();
+        myUser.setNom(request.getParameter("nom"));
+        myUser.setPrenom(request.getParameter("prenom"));
+        myUser.setAdress(request.getParameter("adress"));
+        myUser.setCodePostal(request.getParameter("codepostal"));
+        myUser.setVille(request.getParameter("ville"));
+        myUser.setPortable(request.getParameter("portable"));
+        myUser.setEmail(request.getParameter("email"));
+        myUser.setPassword(request.getParameter("password"));
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/compte.jsp").forward(request, response);
     }
 }
