@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
-<jsp:include page="head.jsp" />
+<%@include file="head.jsp"%>
 
 <body>
-  <jsp:include page="header.jsp" />
+<c:out value="essaiJSTL"/>
+  <%@include file="header.jsp"%>
   <div class="content">
     <div>
       <ul>

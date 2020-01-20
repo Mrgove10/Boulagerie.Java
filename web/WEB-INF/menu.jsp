@@ -1,11 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
-<jsp:include page="head.jsp" />
+<%@include file="head.jsp"%>
 
 <body>
-	<jsp:include page="header.jsp" />
+	<%@include file="header.jsp"%>
 	<div class="content">
 		<div>
 			<ul>
@@ -88,7 +87,7 @@
 			</ul>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+<%@include file="footer.jsp"%>
 </body>
 
 </html>

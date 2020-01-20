@@ -4,6 +4,13 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_4_0.xsd"
            version="4.0">
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/WEB-INF/tagdirs.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+
     <!--Home-->
     <servlet>
         <servlet-name>Index</servlet-name>
@@ -52,5 +59,15 @@
     <servlet-mapping>
         <servlet-name>Produits</servlet-name>
         <url-pattern>/Produits</url-pattern>
+    </servlet-mapping>
+
+    <!--Produits-->
+    <servlet>
+        <servlet-name>Inscription</servlet-name>
+        <servlet-class>Servlets.Inscription</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Inscription</servlet-name>
+        <url-pattern>/Inscription</url-pattern>
     </servlet-mapping>
 </web-app>

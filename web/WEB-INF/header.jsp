@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String uri = request.getRequestURI();
     String pageName = uri.substring(uri.lastIndexOf("/")+1);

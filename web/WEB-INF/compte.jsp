@@ -1,14 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
-<jsp:include page="head.jsp" />
+<%@include file="head.jsp"%>
 
 <body>
-	<jsp:include page="header.jsp" />
+	<%@include file="header.jsp"%>
 	<div class="content">
 		<div>
-			<form id="login">
+			<form id="login" method="post" action="Compte">
 				<h1>Connexion</h1>
 				<fieldset id="inputs">
 					<img class="connect" src="images/username.png">&nbsp;&nbsp;&nbsp;<input name="login" type="text"
@@ -19,16 +18,16 @@
 				<fieldset id="actions">
 					<input type="submit" id="submit" value="Valider">&nbsp;&nbsp;&nbsp;
 					<input type="reset" id="reset" value="Remise à zéro">
-					<a href="message.html">Mot de passe oublié ?</a>
+					<a href="Message">Mot de passe oublié ?</a>
 				</fieldset>
 				<fieldset id="new">
 					<p>Nouveau sur le site ?
-						<a href="inscription.html">Créer votre compte</a></p>
+						<a href="Inscription">Créer votre compte</a></p>
 				</fieldset>
 			</form>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+<%@include file="footer.jsp"%>
 </body>
 
 </html>f
