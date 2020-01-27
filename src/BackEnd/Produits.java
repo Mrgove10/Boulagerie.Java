@@ -5,7 +5,7 @@ package BackEnd;
  */
 public class Produits {
     private int reference;
-    private String produits;
+    private String produits; //name of the produit
     private float prix;
     private int famille;
     private boolean favoris;
