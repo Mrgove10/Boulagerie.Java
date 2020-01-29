@@ -14,4 +14,8 @@
             <li <% if(pageName.equals("panier.jsp")){ %> class="selected" <% } %>><a href="#">Panier</a></li>
         </ul>
     </div>
+    <c:if test="${ !empty sessionScope.prenom && !empty sessionScope.nom }">
+        <div id="infos">Bonjour, <c:out value='${ sessionScope.prenom } ${ sessionScope.nom }'/> <br/></div>
+        <c:set var="affMenu" value="Oui" scope ="page"/>
+    </c:if>
 </div>

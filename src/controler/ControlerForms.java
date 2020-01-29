@@ -1,6 +1,9 @@
 package controler;
 
+import BackEnd.User;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class ControlerForms {
     private Boolean[] resultat;
@@ -32,6 +35,55 @@ public class ControlerForms {
             reference = 0;
         }
         setResultat(0, (reference != 0));
+
+        // Récupération du nom et contrôle
+        String nom;
+        nom = request.getParameter("nom");
+        setResultat(1, (nom != ""));
+
+        // Récupération du prix et contrôle
+        int prix;
+        try {
+            prix = Integer.parseInt(request.getParameter("prix"));
+        } catch (NumberFormatException e) {
+            prix = 0;
+        }
+        setResultat(2, (prix != 0));
     }
 
+    public void ControleConnexion(HttpServletRequest request) {
+        User utilisateur = new User();
+        utilisateur.setNom("Rivière");
+        utilisateur.setPrenom("Curtis");
+        utilisateur.setId(1);
+        utilisateur.setEmail("CurtisRiviere@gmail.com");
+        utilisateur.setPortable("02.86.21.19.37");
+        utilisateur.setCodePostal("53000 ");
+        utilisateur.setVille("LAVAL");
+        utilisateur.setPassword("azerty1!");
+
+       /* User myUser = new User();
+        myUser.setNom(request.getParameter("nom"));
+        myUser.setPrenom(request.getParameter("prenom"));
+        myUser.setAdress(request.getParameter("adress"));
+        myUser.setCodePostal(request.getParameter("codepostal"));
+        myUser.setVille(request.getParameter("ville"));
+        myUser.setPortable(request.getParameter("portable"));
+        myUser.setEmail(request.getParameter("email"));
+        myUser.setPassword(request.getParameter("password"));*/
+        // Initialisation du tableau et contrôle
+        resultat = new Boolean [2];
+        // Récupération du login
+        String login="";
+        if(request.getParameter("login")!=null) {
+            login = request.getParameter("login");
+        }
+        setResultat(0, ( login != null && !login.isEmpty()) && login.equals(utilisateur.getEmail()));
+        // Récupération du mot de passe et contrôle
+        String pwd ="";
+        if(request.getParameter("pwd")!=null) {
+            pwd = request.getParameter("pwd");
+        }
+        setResultat(1, ( pwd != null && !pwd.isEmpty()) && pwd.equals(utilisateur.getPassword()));
+    }
 }

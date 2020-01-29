@@ -6,19 +6,37 @@
 <%@include file="header.jsp" %>
 <div class="content">
     <div>
-        <form id="login_i">
+        <form id="produits" method="post" action="Produits">
             <h1>Rajout d'un produit</h1>
             <fieldset id="inputs">
-                <input id="reference" type="text" placeholder="reference" autofocus required>
-                <input id="nom" type="text" placeholder="nom" required>
-                <input id="prix" type="text" placeholder="prix" required>
-                <!--<input id="famille" type="text" placeholder="famille" required>-->
-                <select name="famille" id="famille" required>
-                    <option value="Baguettes">Baguettes</option>
-                    <option value="Pains">Pains</option>
-                    <option value="Patisseries">Patisseries</option>
-                    <option value="Sandwichs">Sandwichs</option>
-                    <option value="Viennoiseries">Viennoiseries</option>
+                <input id="reference"
+                       type="text"
+                       placeholder="reference"
+                       autofocus
+                       name="reference">
+            <!--    // TOOD SOMETHING HERE-->
+                <c:if test='${ !empty reference }'>
+		               <c:out value='${ reference }'/>
+                </c:if>
+
+                <c:if test="${ controller.resultat[0]==false}">
+                    <span class='erreur'><c:out value="La référence ne peut être nulle"/></span>
+                </c:if>
+                <input id="nom" type="text" placeholder="nom">
+                <c:if test="${ controller.resultat[1]==false}">
+                    <span class='erreur'><c:out value="Le nom ne peut être nulle"/></span>
+                </c:if>
+                <input id="prix" type="text" placeholder="prix">
+                <c:if test="${ controller.resultat[2]==false}">
+                    <span class='erreur'><c:out value="Le prix ne peut être nulle"/></span>
+                </c:if>
+                <br>
+                <select name="famille">
+                    <c:forEach items="${ listeFamille }" var="famille">
+                        <option value="<c:out value='${ famille.reference }'/>">
+                            <c:out value='${ famille.famille }'/>
+                        </option>
+                    </c:forEach>
                 </select>
             </fieldset>
             <fieldset id="actions">
