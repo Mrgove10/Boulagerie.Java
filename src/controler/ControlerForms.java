@@ -3,7 +3,6 @@ package controler;
 import BackEnd.User;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 public class ControlerForms {
     private Boolean[] resultat;
@@ -39,7 +38,7 @@ public class ControlerForms {
         // Récupération du nom et contrôle
         String nom;
         nom = request.getParameter("nom");
-        setResultat(1, (nom != ""));
+        setResultat(1, (nom != "" && !nom.isEmpty()));
 
         // Récupération du prix et contrôle
         int prix;
@@ -52,6 +51,7 @@ public class ControlerForms {
     }
 
     public void ControleConnexion(HttpServletRequest request) {
+
         User utilisateur = new User();
         utilisateur.setNom("Rivière");
         utilisateur.setPrenom("Curtis");
@@ -61,29 +61,72 @@ public class ControlerForms {
         utilisateur.setCodePostal("53000 ");
         utilisateur.setVille("LAVAL");
         utilisateur.setPassword("azerty1!");
-
-       /* User myUser = new User();
-        myUser.setNom(request.getParameter("nom"));
-        myUser.setPrenom(request.getParameter("prenom"));
-        myUser.setAdress(request.getParameter("adress"));
-        myUser.setCodePostal(request.getParameter("codepostal"));
-        myUser.setVille(request.getParameter("ville"));
-        myUser.setPortable(request.getParameter("portable"));
-        myUser.setEmail(request.getParameter("email"));
-        myUser.setPassword(request.getParameter("password"));*/
         // Initialisation du tableau et contrôle
-        resultat = new Boolean [2];
+        resultat = new Boolean[2];
         // Récupération du login
-        String login="";
-        if(request.getParameter("login")!=null) {
+        String login = "";
+        if (request.getParameter("login") != null) {
             login = request.getParameter("login");
         }
-        setResultat(0, ( login != null && !login.isEmpty()) && login.equals(utilisateur.getEmail()));
+        setResultat(0, (login != null && !login.isEmpty()) && login.equals(utilisateur.getEmail()));
         // Récupération du mot de passe et contrôle
-        String pwd ="";
-        if(request.getParameter("pwd")!=null) {
+        String pwd = "";
+        if (request.getParameter("pwd") != null) {
             pwd = request.getParameter("pwd");
         }
-        setResultat(1, ( pwd != null && !pwd.isEmpty()) && pwd.equals(utilisateur.getPassword()));
+        setResultat(1, (pwd != null && !pwd.isEmpty()) && pwd.equals(utilisateur.getPassword()));
+    }
+
+    public void ControleInscription(HttpServletRequest request) {
+        // Initialisation du tableau et contrôle
+        resultat = new Boolean[8];
+        // nom
+        String nom = "";
+        if (request.getParameter("nom") != null) {
+            nom = request.getParameter("nom");
+        }
+        setResultat(0, (nom != null && !nom.isEmpty()));
+        //prenom
+        String prenom = "";
+        if (request.getParameter("prenom") != null) {
+            prenom = request.getParameter("prenom");
+        }
+        setResultat(1, (prenom != null && !prenom.isEmpty()));
+        //adresse
+        String adresse = "";
+        if (request.getParameter("adresse") != null) {
+            adresse = request.getParameter("adresse");
+        }
+        setResultat(2, (adresse != null && !adresse.isEmpty()));
+        //prenom
+        String codepostal = "";
+        if (request.getParameter("codepostal") != null) {
+            codepostal = request.getParameter("codepostal");
+        }
+        setResultat(3, (codepostal != null && !codepostal.isEmpty()));
+        //ville
+        String ville = "";
+        if (request.getParameter("ville") != null) {
+            ville = request.getParameter("ville");
+        }
+        setResultat(4, (ville != null && !ville.isEmpty()));
+        //portable
+        String portable = "";
+        if (request.getParameter("portable") != null) {
+            portable = request.getParameter("portable");
+        }
+        setResultat(5, (portable != null && !portable.isEmpty()));
+        //Email
+        String Email = "";
+        if (request.getParameter("Email") != null) {
+            Email = request.getParameter("Email");
+        }
+        setResultat(6, (Email != null && !Email.isEmpty()));
+        //password
+        String password = "";
+        if (request.getParameter("password") != null) {
+            password = request.getParameter("password");
+        }
+        setResultat(7, (password != null && !password.isEmpty()));
     }
 }

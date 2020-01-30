@@ -12,28 +12,24 @@
 					<a href="#"><img src="images/traditional.jpg" alt=""></a>
 					<a href="#">Baguettes</a>
 					<table>
-						<tr>
-							<td style="width:60%">Le pain au pavot</td>
-							<td style="width:40%">€ 1.15</td>
-						</tr>
-						<tr>
-							<td>Le pain tressé et natté</td>
-							<td>€ 1.80</td>
-						</tr>
+						<c:forEach items="${ listBaguette }" var="l">
+							<tr>
+								<td style="width:60%"><c:out value='${ l.produits }'/></td>
+								<td style="width:40%">€ <c:out value='${ l.prix }'/></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</li>
 				<li>
 					<a href="#"><img src="images/patisseries.jpg" alt=""></a>
 					<a href="#">Patisseries</a>
 					<table>
-						<tr>
-							<td>Eclair</td>
-							<td>$ 2.50</td>
-						</tr>
-						<tr>
-							<td>Flan</td>
-							<td>$ 2.10</td>
-						</tr>
+						<c:forEach items="${ listPatisseriee }" var="l">
+							<tr>
+								<td style="width:60%"><c:out value='${ l.produits }'/></td>
+								<td style="width:40%">€ <c:out value='${ l.prix }'/></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</li>
 				<li>
@@ -46,42 +42,36 @@
 					<a href="#"><img src="images/loafs.jpg" alt=""></a>
 					<a href="#">Pains</a>
 					<table>
-						<tr>
-							<td>Complet</td>
-							<td>$ 1.80</td>
-						</tr>
-						<tr>
-							<td>Tradition</td>
-							<td>$ 1.35</td>
-						</tr>
+						<c:forEach items="${ listPain }" var="l">
+							<tr>
+								<td style="width:60%"><c:out value='${ l.produits }'/></td>
+								<td style="width:40%">€ <c:out value='${ l.prix }'/></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</li>
 				<li>
 					<a href="#"><img src="images/sandwiches.jpg" alt=""></a>
 					<a href="#">Sandwichs</a>
 					<table>
-						<tr>
-							<td>Jambon-beurre</td>
-							<td>$ 4.00</td>
-						</tr>
-						<tr>
-							<td>Au thon</td>
-							<td>$ 4.50</td>
-						</tr>
+						<c:forEach items="${ listSandwich }" var="l">
+							<tr>
+								<td style="width:60%"><c:out value='${ l.produits }'/></td>
+								<td style="width:40%">€ <c:out value='${ l.prix }'/></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</li>
 				<li>
 					<a href="#"><img src="images/croissants.jpg" alt=""></a>
 					<a href="#">Viennoiseries</a>
 					<table>
-						<tr>
-							<td>Croissants</td>
-							<td>$ 0.95</td>
-						</tr>
-						<tr>
-							<td>Suisse</td>
-							<td>$ 1.25</td>
-						</tr>
+						<c:forEach items="${ listViennoiserie }" var="l">
+							<tr>
+								<td style="width:60%"><c:out value='${ l.produits }'/></td>
+								<td style="width:40%">€ <c:out value='${ l.prix }'/></td>
+							</tr>
+						</c:forEach>
 					</table>
 				</li>
 			</ul>

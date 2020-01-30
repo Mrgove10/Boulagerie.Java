@@ -3,10 +3,6 @@
     String pageName = uri.substring(uri.lastIndexOf("/")+1);
 %>
 <div class="header">
-    <c:if test="${ !empty sessionScope.prenom && !empty sessionScope.nom }">
-        <div id="infos">Bonjour, <c:out value='${ sessionScope.prenom } ${ sessionScope.nom }'/> <br/></div>
-        <c:set var="affMenu" value="Oui" scope ="page"/>
-    </c:if>
     <div>
         <a href="Home" id="logo"><img src="images/logo.png" alt="logo"></a>
         <ul>
@@ -18,4 +14,8 @@
             <li <% if(pageName.equals("panier.jsp")){ %> class="selected" <% } %>><a href="#">Panier</a></li>
         </ul>
     </div>
+    <c:if test="${ !empty sessionScope.prenom && !empty sessionScope.nom }">
+        <div id="infos">Bonjour, <c:out value='${ sessionScope.prenom } ${ sessionScope.nom }'/> <br/></div>
+        <c:set var="affMenu" value="Oui" scope ="page"/>
+    </c:if>
 </div>

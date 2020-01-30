@@ -3,7 +3,6 @@
 <%@include file="head.jsp"%>
 
 <body>
-<c:out value="essaiJSTL"/>
   <%@include file="header.jsp"%>
   <div class="content">
     <div>
