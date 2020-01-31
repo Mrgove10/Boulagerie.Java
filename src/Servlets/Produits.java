@@ -52,6 +52,7 @@ public class Produits extends HttpServlet {
         controller.ControleProduits(request);
         // Initialisation de request pour réponse
         request.setAttribute("controller", controller);
+        request.setAttribute("values",request);
         // Appel de la JSP
         this.getServletContext().getRequestDispatcher("/WEB-INF/produits.jsp").forward(request, response);
     }

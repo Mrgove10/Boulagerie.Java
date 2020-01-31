@@ -38,7 +38,8 @@ public class ControlerForms {
         // Récupération du nom et contrôle
         String nom;
         nom = request.getParameter("nom");
-        setResultat(1, (nom != "" && !nom.isEmpty()));
+        boolean l = (nom != "" && !nom.isEmpty());
+        setResultat(1, l);
 
         // Récupération du prix et contrôle
         int prix;

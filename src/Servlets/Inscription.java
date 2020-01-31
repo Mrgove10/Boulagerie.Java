@@ -20,14 +20,14 @@ public class Inscription extends HttpServlet {
         ControlerForms cf = new ControlerForms();
         cf.ControleInscription(request);
 
-        if (cf.getResultat(0) == true &&
-                cf.getResultat(1) == true &&
-                cf.getResultat(2) == true &&
-                cf.getResultat(3) == true &&
-                cf.getResultat(4) == true &&
-                cf.getResultat(5) == true &&
-                cf.getResultat(6) == true &&
-                cf.getResultat(7) == true) {
+        if (cf.getResultat(0) &&
+            cf.getResultat(1) &&
+            cf.getResultat(2) &&
+            cf.getResultat(3) &&
+            cf.getResultat(4) &&
+            cf.getResultat(5) &&
+            cf.getResultat(6) &&
+            cf.getResultat(7)) {
             //TODO : changer avec les vrai valeurs
             User utilisateur = new User();
             utilisateur.setNom("Rivière");
@@ -49,6 +49,6 @@ public class Inscription extends HttpServlet {
         myUser.setPassword(request.getParameter("password"));*/
         }
         request.setAttribute("controller", cf);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/compte.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
     }
 }
