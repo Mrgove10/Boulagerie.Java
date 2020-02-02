@@ -1,18 +1,37 @@
 package Servlets;
 
+import BackEnd.User;
+import BackEnd.UserControl;
 import controler.ControlerForms;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
+
+import static BackEnd.UserControl.DEBUGCREATEUSER;
+import static BackEnd.UserControl.mainUtilisateur;
 
 @WebServlet(name = "Servlets.Compte")
 public class Compte extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/compte.jsp").forward(request, response);
+        if(mainUtilisateur.getNom() == null) {
+            DEBUGCREATEUSER();
+        }
+        Cookie[] cookies = request.getCookies();
+        HttpSession session = request.getSession();
+        if (session != null || session.getAttribute("id") != null) {
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("login")) {
+                        request.setAttribute("login", cookie.getValue());
+                    }
+                }
+                this.getServletContext().getRequestDispatcher("/WEB-INF/compte.jsp").forward(request, response);
+            }
+        } else {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,22 +39,22 @@ public class Compte extends HttpServlet {
         cf.ControleConnexion(request);
         if (cf.getResultat(0) &&
                 cf.getResultat(1)) {
-//All the values are good so lets make a new user
-            //TODO: create a new user in the database
-        }
-        request.setAttribute("controller", cf);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/compte.jsp").forward(request, response);
 
-        // Si tout est Ok ==> création des variables de session
-       /* if (cf.getResultat(0) == true && cf.getResultat(1) == true) {
-            User utilisateur = new User();
             // Initialisation du moteur de session de JEE
             HttpSession session = request.getSession();
+
+            User utilisateur = UserControl.mainUtilisateur;
+
             session.setAttribute("id", utilisateur.getId());
             session.setAttribute("nom", utilisateur.getNom());
             session.setAttribute("prenom", utilisateur.getPrenom());
 
-        }*/
-    }
 
+            Cookie cookie = new Cookie("login", request.getParameter("nom"));
+            cookie.setMaxAge(60 * 60 * 24 * 30);
+            response.addCookie(cookie);
+        }
+        request.setAttribute("controller", cf);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/compte.jsp").forward(request, response);
+    }
 }

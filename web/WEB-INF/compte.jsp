@@ -10,8 +10,8 @@
 			<form id="login" method="post" action="Compte">
 				<h1>Connexion</h1>
 				<fieldset id="inputs">
-					<img class="connect" src="images/username.png">&nbsp;&nbsp;&nbsp;<input name="login" type="text"
-						placeholder="Email" autofocus>
+					<img class="connect" src="images/username.png"><input name="login" type="text"
+						placeholder="Email" autofocus value="${ login }">
 					<c:if test="${ controller.resultat[0]==false}">
 						<span class='erreur'><c:out value="L'identifiant ne peut être nulle"/></span>
 					</c:if>
@@ -29,8 +29,13 @@
 					<a href="Message">Mot de passe oublié ?</a>
 				</fieldset>
 				<fieldset id="new">
+				<c:if test="${not empty id}">
+					<p><a href="Inscription">Modifier mon compte</a></p>
+				</c:if>
+				<c:if test="${empty id}">
 					<p>Nouveau sur le site ?
 						<a href="Inscription">Créer votre compte</a></p>
+				</c:if>
 				</fieldset>
 			</form>
 		</div>

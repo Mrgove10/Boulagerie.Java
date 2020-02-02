@@ -8,7 +8,12 @@
 <div class="content">
     <div>
         <form id="inscription" method="post" action="Inscription">
-            <h1>Inscription</h1>
+            <c:if test="${not empty id}">
+                <h1>Modification</h1>
+            </c:if>
+            <c:if test="${empty id}">
+                <h1>Inscription</h1>
+            </c:if>
             <fieldset id="inputs">
                 <input id="nom"
                        name="nom"
@@ -83,9 +88,19 @@
                 <c:if test="${ controller.resultat[7]==false}">
                     <span class='erreur'><c:out value="Le mot de passe ne peut être nulle"/></span>
                 </c:if>
-            </fieldset>
+            </fieldset
             <fieldset id="actions">
-                <input type="submit" id="submit" value="Valider">
+                <c:if test="${not empty id}">
+                    <input type="submit" name="logout" id="logout" value="Deconnexion">
+                </c:if>
+                <input type="submit" id="submit"
+                        <c:if test="${empty id}">
+                               value="Valider"
+                        </c:if>
+                        <c:if test="${not empty id}">
+                               value="Modifier"
+                        </c:if>
+                >
             </fieldset>
         </form>
     </div>
