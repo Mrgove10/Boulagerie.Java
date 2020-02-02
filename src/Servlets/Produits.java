@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 @WebServlet(name = "Servlets.Produits")
 public class Produits extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    //TODO: this is temporary : will be in the database next
+    private ArrayList<Famile> createFamillies(){
         ArrayList<Famile> listeFamille = new ArrayList<Famile>();
         Famile fam1 = new Famile();
         Famile fam2 = new Famile();
@@ -35,24 +37,33 @@ public class Produits extends HttpServlet {
         listeFamille.add(fam3);
         listeFamille.add(fam4);
         listeFamille.add(fam5);
-        request.setAttribute("listeFamille", listeFamille);
+        return listeFamille;
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listeFamille", createFamillies());
         this.getServletContext().getRequestDispatcher("/WEB-INF/produits.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*BackEnd.Produits myProduit = new BackEnd.Produits();
-        myProduit.setReference(Integer.parseInt(request.getParameter("reference")));
-        myProduit.setProduits(request.getParameter("nom"));
-        myProduit.setPrix(Float.parseFloat(request.getParameter("prix")));
-        myProduit.setFamille(Integer.parseInt(request.getParameter("famille")));*/
+        ControlerForms cf = new ControlerForms();
+        cf.ControleProduits(request);
 
+        BackEnd.Produits produit = new BackEnd.Produits();
+        produit.setReference(Integer.parseInt(request.getParameter("reference")));
+        produit.setProduits(request.getParameter("nom"));
+        produit.setPrix(Float.parseFloat(request.getParameter("prix")));
+        produit.setFamille(Integer.parseInt(request.getParameter("famille")));
 
-        // Contrôle des données saisies
-        ControlerForms controller = new ControlerForms();
-        controller.ControleProduits(request);
+        if (cf.getResultat(0) &&
+                cf.getResultat(1) &&
+                cf.getResultat(2)) {
+            //TODO: create a new product in the database
+        }
         // Initialisation de request pour réponse
-        request.setAttribute("controller", controller);
-        request.setAttribute("values",request);
+        request.setAttribute("controller", cf);
+        request.setAttribute("produit", produit);
+        request.setAttribute("listeFamille", createFamillies());
         // Appel de la JSP
         this.getServletContext().getRequestDispatcher("/WEB-INF/produits.jsp").forward(request, response);
     }

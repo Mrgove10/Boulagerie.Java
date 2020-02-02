@@ -20,35 +20,31 @@ public class Inscription extends HttpServlet {
         ControlerForms cf = new ControlerForms();
         cf.ControleInscription(request);
 
+        User utilisateur = new User();
+        utilisateur.setId(1);
+        utilisateur.setNom(request.getParameter("nom"));
+        utilisateur.setPrenom(request.getParameter("prenom"));
+        utilisateur.setAdress(request.getParameter("adress"));
+        utilisateur.setCodePostal(request.getParameter("codepostal"));
+        utilisateur.setVille(request.getParameter("ville"));
+        utilisateur.setPortable(request.getParameter("portable"));
+        utilisateur.setEmail(request.getParameter("email"));
+        utilisateur.setPassword(request.getParameter("password"));
+
         if (cf.getResultat(0) &&
-            cf.getResultat(1) &&
-            cf.getResultat(2) &&
-            cf.getResultat(3) &&
-            cf.getResultat(4) &&
-            cf.getResultat(5) &&
-            cf.getResultat(6) &&
-            cf.getResultat(7)) {
-            //TODO : changer avec les vrai valeurs
-            User utilisateur = new User();
-            utilisateur.setNom("Rivière");
-            utilisateur.setPrenom("Curtis");
-            utilisateur.setId(1);
-            utilisateur.setEmail("CurtisRiviere@gmail.com");
-            utilisateur.setPortable("02.86.21.19.37");
-            utilisateur.setCodePostal("53000 ");
-            utilisateur.setVille("LAVAL");
-            utilisateur.setPassword("azerty1!");
-                   /* User myUser = new User();
-        myUser.setNom(request.getParameter("nom"));
-        myUser.setPrenom(request.getParameter("prenom"));
-        myUser.setAdress(request.getParameter("adress"));
-        myUser.setCodePostal(request.getParameter("codepostal"));
-        myUser.setVille(request.getParameter("ville"));
-        myUser.setPortable(request.getParameter("portable"));
-        myUser.setEmail(request.getParameter("email"));
-        myUser.setPassword(request.getParameter("password"));*/
+                cf.getResultat(1) &&
+                cf.getResultat(2) &&
+                cf.getResultat(3) &&
+                cf.getResultat(4) &&
+                cf.getResultat(5) &&
+                cf.getResultat(6) &&
+                cf.getResultat(7)) {
+//All the values are good so lets make a new user
+           //TODO: create a new user in the database
         }
         request.setAttribute("controller", cf);
+        request.setAttribute("utilisateur", utilisateur);
+
         this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
     }
 }
